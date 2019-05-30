@@ -38,7 +38,22 @@ class NewsListVC: UIViewController {
                     let parseData = try JSONSerialization.jsonObject(with: data!) as! [String: Any]
                     
                     for (key, value) in parseData {
-                        print(" \(key) --- \(value) ")
+//                        print(" \(key) --- \(value) ")
+                        if (key == "articles") {
+                            if let articleArray:[ [String:Any] ] = value as? [ [String:Any] ] {
+                                print("is array of dict")
+                                
+                                for dict in articleArray {
+                                    for (key, value) in dict {
+                                        if (key == "url") {
+                                            print(value)
+                                        } else if (key == "title") {
+                                            print("title is : \(value)")
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                     
                 } catch let error as NSError {
