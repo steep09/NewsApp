@@ -14,6 +14,7 @@
 		A7D4ACFA229FA1A300949ADB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7D4ACF9229FA1A300949ADB /* Assets.xcassets */; };
 		A7D4ACFD229FA1A300949ADB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7D4ACFB229FA1A300949ADB /* LaunchScreen.storyboard */; };
 		A7D4AD07229FA65C00949ADB /* NewsDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D4AD06229FA65C00949ADB /* NewsDetailVC.swift */; };
+		A7D4AD09229FAEFC00949ADB /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D4AD08229FAEFC00949ADB /* NewsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		A7D4ACFC229FA1A300949ADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A7D4ACFE229FA1A300949ADB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7D4AD06229FA65C00949ADB /* NewsDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailVC.swift; sourceTree = "<group>"; };
+		A7D4AD08229FAEFC00949ADB /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 		A7D4AD05229FA62700949ADB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A7D4AD08229FAEFC00949ADB /* NewsCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 				A7D4ACF8229FA1A300949ADB /* newsApp.xcdatamodeld in Sources */,
 				A7D4AD07229FA65C00949ADB /* NewsDetailVC.swift in Sources */,
 				A7D4ACF0229FA1A300949ADB /* AppDelegate.swift in Sources */,
+				A7D4AD09229FAEFC00949ADB /* NewsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
