@@ -30,19 +30,16 @@ class NewsListVC: UIViewController {
             //check if it has an error
             if error != nil {
                 print("didn't work")
-                DispatchQueue.main.asyncAfter(deadline: .now() ) {
-                    //JUST DEAL
-                }
             } else {
+                //this will try to present the keys and values inside json dictionary
                 do {
+                    //this will take the json that has a value of string and any value and store it in parseData
                     let parseData = try JSONSerialization.jsonObject(with: data!) as! [String: Any]
                     
                     for (key, value) in parseData {
-//                        print(" \(key) --- \(value) ")
+                        print("\(key) ----- \(value)")
                         if (key == "articles") {
                             if let articleArray:[ [String:Any] ] = value as? [ [String:Any] ] {
-                                print("is array of dict")
-                                
                                 for dict in articleArray {
                                     for (key, value) in dict {
                                         if (key == "url") {
@@ -59,10 +56,6 @@ class NewsListVC: UIViewController {
                 } catch let error as NSError {
                     print(error)
                     
-                    //display pop-up alert if the code does not work
-                    DispatchQueue.main.asyncAfter(deadline: .now() ) {
-                        //JUST DEAL
-                    }
                 }
             }
         }.resume()
