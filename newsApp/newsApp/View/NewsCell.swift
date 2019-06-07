@@ -14,15 +14,15 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var newsImage: UIImageView!
     @IBOutlet weak var newsDescription: UILabel!
     
-    func configureCell(news: News) {
-        self.newsTitle.text = news.title
-        if let url = NSURL(string: news.image) {
-            if let data = NSData(contentsOf: url as URL) {
-                self.newsImage.image = UIImage(data: data as Data)
-            }
-        }
-        self.newsDescription.text = news.description
-    }
+//    func configureCell(news: News) {
+//        self.newsTitle.text = news.
+//        if let url = NSURL(string: news.image) {
+//            if let data = NSData(contentsOf: url as URL) {
+//                self.newsImage.image = UIImage(data: data as Data)
+//            }
+//        }
+//        self.newsDescription.text = news.description
+//    }
 
 }
 

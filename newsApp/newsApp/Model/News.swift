@@ -8,14 +8,12 @@
 
 import Foundation
 
-struct News {
-    var title: String!
-    var image: String!
-    var description: String!
+struct News: Decodable {
+    let articles: [Article]
     
-    init(title: String, image: String, description: String) {
-        self.title = title
-        self.image = image
-        self.description = description
+    struct Article: Decodable {
+        let title: String
+        let urlToImage: String
+        let description: String
     }
 }
