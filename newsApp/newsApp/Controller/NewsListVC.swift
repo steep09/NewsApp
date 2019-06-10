@@ -19,17 +19,20 @@ class NewsListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        getJson()
-        
-        //        print(sample[0].articles[0].title)
+        getJson(urlString: "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=e07d26ea273d41e2af174b026aea27b5")
         
         newsTableView.delegate = self
         newsTableView.dataSource = self
         
     }
     
-    func getJson() {
-        let urlString = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=e07d26ea273d41e2af174b026aea27b5"
+    @IBAction func reloadBtnWasPressed(_ sender: Any) {
+        getJson(urlString: "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=e07d26ea273d41e2af174b026aea27b5")
+        
+        self.newsTableView.reloadData()
+    }
+    
+    func getJson(urlString: String) {
         
         guard let url = URL(string: urlString) else { return }
         
