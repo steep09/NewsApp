@@ -17,6 +17,7 @@
 		A7F67F9322A10AEA00ABAC77 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F67F9222A10AEA00ABAC77 /* News.swift */; };
 		A7FA0CBB22AE488500D9BABC /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7FA0CBA22AE488500D9BABC /* WebKit.framework */; };
 		A7FA0CBD22AE488C00D9BABC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7FA0CBC22AE488C00D9BABC /* MapKit.framework */; };
+		A7FA0CC222AE4B7A00D9BABC /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FA0CC122AE4B7A00D9BABC /* UIViewControllerExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		A7F67F9222A10AEA00ABAC77 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		A7FA0CBA22AE488500D9BABC /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		A7FA0CBC22AE488C00D9BABC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A7FA0CC122AE4B7A00D9BABC /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 		A7D4ACEE229FA1A300949ADB /* newsApp */ = {
 			isa = PBXGroup;
 			children = (
+				A7FA0CBE22AE4B4200D9BABC /* Extension */,
 				A7F67F9122A10ADE00ABAC77 /* Model */,
 				A7D4AD05229FA62700949ADB /* View */,
 				A7D4AD04229FA60000949ADB /* Controller */,
@@ -111,6 +114,14 @@
 				A7FA0CBA22AE488500D9BABC /* WebKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A7FA0CBE22AE4B4200D9BABC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A7FA0CC122AE4B7A00D9BABC /* UIViewControllerExt.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +197,7 @@
 			files = (
 				A7D4ACF2229FA1A300949ADB /* NewsListVC.swift in Sources */,
 				A7D4AD07229FA65C00949ADB /* NewsDetailVC.swift in Sources */,
+				A7FA0CC222AE4B7A00D9BABC /* UIViewControllerExt.swift in Sources */,
 				A7D4ACF0229FA1A300949ADB /* AppDelegate.swift in Sources */,
 				A7F67F9322A10AEA00ABAC77 /* News.swift in Sources */,
 				A7D4AD09229FAEFC00949ADB /* NewsCell.swift in Sources */,

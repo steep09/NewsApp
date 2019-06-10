@@ -73,9 +73,7 @@ extension NewsListVC: UITableViewDataSource, UITableViewDelegate {
                 cell.newsImage.image = UIImage(data: data as Data)
             }
         }
-        
         return cell
-        //        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

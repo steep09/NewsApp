@@ -30,4 +30,9 @@ class NewsDetailVC: UIViewController, WKUIDelegate {
         
         webView.load(myRequest)
     }
+    
+    
+    @IBAction func backBtnWasPressed(_ sender: Any) {
+        dismissDetail()
+    }
 }
