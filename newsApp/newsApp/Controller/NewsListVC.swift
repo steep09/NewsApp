@@ -12,24 +12,20 @@ class NewsListVC: UIViewController {
     
     @IBOutlet weak var newsTableView: UITableView!
     
-//    var newsList = [ [String:Any] ]()
-//    var NewsList = [News]()
-////    var news = [String:Any]()
-//    var newstitle: String!
-//    var newsimage: String!
-//    var newsdescription: String!
+    var sample = [News]()
     
-//    var newsList = [ [String:Any] ]()
-    
-//    var NewsList = [News]()
+    //    var newsList = [String:Any]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Do any additional setup after loading the view.
         getJson()
+        
+        //        print(sample[0].articles[0].title)
         
         newsTableView.delegate = self
         newsTableView.dataSource = self
+        
     }
     
     func getJson() {
@@ -41,91 +37,54 @@ class NewsListVC: UIViewController {
             guard let data = data else { return }
             
             do {
-                let newsList = try JSONDecoder().decode(News.self, from: data)
                 
-                for dict in newsList.articles {
-                    print(dict.title)
-                    print("")
+                self.sample = [try JSONDecoder().decode(News.self, from: data)]
+                
+                DispatchQueue.main.async {
+                    //reload tableView data
+                    self.newsTableView.reloadData()
                 }
+                
             } catch let jsonErr {
                 print("json error: ", jsonErr)
             }
-        }.resume()
+            }.resume()
     }
 }
 
-
-
-extension NewsListVC: UITableViewDelegate, UITableViewDataSource {
+extension NewsListVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return NewsList.count
-        return 0
+        return sample.first?.articles.count ?? 0
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(240)
+        return CGFloat(235)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as? NewsCell else { return UITableViewCell() }
-//
-//        let news = NewsList[indexPath.row]
-//        cell.configureCell(news: news)
-//        return cell
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
+        let json = sample[0].articles[indexPath.row]
+        cell.newsTitle.text = "\(json.title ?? "")"
+        cell.newsDescription.text = "\(json.description ?? "")"
+        
+        if let url = NSURL(string: json.urlToImage ?? "") {
+            if let data = NSData(contentsOf: url as URL) {
+                cell.newsImage.image = UIImage(data: data as Data)
+            }
+        }
+        
+        return cell
+        //        return UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detail = storyboard?.instantiateViewController(withIdentifier: "NewsDetailVC") as! NewsDetailVC
+        print(sample[0].articles[indexPath.row].url!)
+        detail.initData(site: sample[0].articles[indexPath.row].url!)
+        present(detail, animated: false, completion: nil)
+
+    }
+    
+    
 }
-
-//extension NewsListVC {
-//
-//    func parseURL() {
-//
-//        let theURL = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=e07d26ea273d41e2af174b026aea27b5"
-//        let url = URL(string: theURL)
-//        URLSession.shared.dataTask(with:url!) { (data, response, error) in
-//            //check if it has an error
-//            if error != nil {
-//                print("didn't work")
-//            } else {
-//                //this will try to present the keys and values inside json dictionary
-//                do {
-//                    //this will take the json that has a value of string and any value and store it in parseData
-//                    let parseData = try JSONSerialization.jsonObject(with: data!) as! [String: Any]
-//
-//                    //                    print(parseData["articles"]!)
-//                    self.newsList = parseData["articles"] as! [[String : Any]]
-//                    for x in self.newsList {
-//                        self.NewsList.append(News(title: x["title"] as? String ?? "", image: x["urlToImage"] as? String ?? "", description: x["description"] as? String ?? ""))
-//                        print("\(self.NewsList[self.NewsList.count - 1].title!) --- \(self.NewsList.count)")
-//                    }
-//                    print(self.NewsList.count)
-//                } catch let error as NSError {
-//                    print(error)
-//                }
-//            }
-//            }.resume()
-//    }
-//}
-
-//                    for (key, value) in parseData {
-//                        if (key == "articles") {
-//                            if let articleArray:[ [String:Any] ] = value as? [ [String:Any] ] {
-//
-//                                //this will loop through all articles
-//                                for dict in articleArray {
-//                                    for (key, value) in dict {
-//                                        if (key == "urlToImage") {
-//                                            self.newsimage = value as? String
-//                                        } else if (key == "title") {
-//                                            self.newstitle = value as? String
-//                                        } else if (key == "description") {
-//                                            self.newsdescription = value as? String
-//                                        }
-//
-//                                    }
-//                                    self.newsList.append(News(title: self.newstitle, image: self.newsimage, description: self.newsdescription))
-//                                    print(self.newsList.count)
-//                                }
-//                            }
-//                        }
-//                    }

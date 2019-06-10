@@ -7,12 +7,27 @@
 //
 
 import UIKit
+import WebKit
 
-class NewsDetailVC: UIViewController {
+class NewsDetailVC: UIViewController, WKUIDelegate {
 
+    @IBOutlet weak var webView: WKWebView!
+    
+    var siteUrl: String?
+    
+    func initData(site: String) {
+        self.siteUrl = site
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        webView.uiDelegate = self
 
-        // Do any additional setup after loading the view.
+        let myURL = URL(string: siteUrl!)
+        
+        let myRequest = URLRequest(url: myURL!)
+        
+        webView.load(myRequest)
     }
 }

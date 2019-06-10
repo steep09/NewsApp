@@ -15,6 +15,8 @@
 		A7D4AD07229FA65C00949ADB /* NewsDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D4AD06229FA65C00949ADB /* NewsDetailVC.swift */; };
 		A7D4AD09229FAEFC00949ADB /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D4AD08229FAEFC00949ADB /* NewsCell.swift */; };
 		A7F67F9322A10AEA00ABAC77 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F67F9222A10AEA00ABAC77 /* News.swift */; };
+		A7FA0CBB22AE488500D9BABC /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7FA0CBA22AE488500D9BABC /* WebKit.framework */; };
+		A7FA0CBD22AE488C00D9BABC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7FA0CBC22AE488C00D9BABC /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		A7D4AD06229FA65C00949ADB /* NewsDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailVC.swift; sourceTree = "<group>"; };
 		A7D4AD08229FAEFC00949ADB /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		A7F67F9222A10AEA00ABAC77 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		A7FA0CBA22AE488500D9BABC /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		A7FA0CBC22AE488C00D9BABC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7FA0CBB22AE488500D9BABC /* WebKit.framework in Frameworks */,
+				A7FA0CBD22AE488C00D9BABC /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +52,7 @@
 			children = (
 				A7D4ACEE229FA1A300949ADB /* newsApp */,
 				A7D4ACED229FA1A300949ADB /* Products */,
+				A7FA0CB922AE488400D9BABC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +102,15 @@
 				A7F67F9222A10AEA00ABAC77 /* News.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A7FA0CB922AE488400D9BABC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A7FA0CBC22AE488C00D9BABC /* MapKit.framework */,
+				A7FA0CBA22AE488500D9BABC /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
